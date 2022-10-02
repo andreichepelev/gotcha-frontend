@@ -19,4 +19,9 @@ export class AppComponent {
     Validators.required,
   ]);
 
+  
+  newClient(email: string, address: string) {
+    console.log(email, address)
+  }
+
 }
