@@ -41,6 +41,8 @@ export class AppComponent {
       address: _address
     };
 
+    console.log("object to send: ", newClientObj)
+
     this.http.post<Client>(this.clientEndpointUrl, newClientObj, { withCredentials: true })
       .pipe(
         catchError(error => {
