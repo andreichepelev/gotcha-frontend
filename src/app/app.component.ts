@@ -51,28 +51,6 @@ export class AppComponent {
     Validators.required,
   ]);
 
-  // getContent(subs: Array<string>): Observable<IContent> {
-  //   return (() => {
-  //     return this.http.get<IContent>( (() => {
-  //       let r = this.root;
-  //       subs.forEach((s, i, a) => {
-  //         if(i === a.length-1) {
-  //           r += s;
-  //         }
-  //         else {
-  //           if(s !== '/') {
-  //             r += s;
-  //           }
-  //         }
-  //       });
-  //       return r;
-  //     })(), {
-  //       headers: this.corsHeaders
-  //     });
-
-  //   })();
-  // }
-
 
   newClient(_email: string, _address: string) {
 
@@ -82,9 +60,6 @@ export class AppComponent {
     };
 
     console.log("object to send: ", newClientObj)
-
-    //     this.http.post<Client>(this.clientEndpointUrl, newClientObj, { withCredentials: true })
-
 
     this.http.post<Client>(this.clientEndpointUrl, newClientObj, this.requestOptions)
       .pipe(
