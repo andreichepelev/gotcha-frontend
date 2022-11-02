@@ -74,6 +74,15 @@
     align-items: center;
   }
 
+  .content-2 {
+    display: flex;
+    margin: 16px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
   a,
   a:visited,
   a:hover {
@@ -155,3 +164,33 @@
       width: 320px;
   }
 
+  mat-grid-list {
+    max-width: 100%;
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    padding-bottom: 0px;
+  }
+
+  // mat-grid-tile {
+  //   background-color: azure;
+  // }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+  }
+
+  .icon {
+    width: 40px;
+    height: auto;
+  }
+
+  .main-img {
+    max-width: 100%;
+    width: 560px;
+  }

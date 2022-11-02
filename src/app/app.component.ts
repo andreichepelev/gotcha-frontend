@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import {
@@ -6,6 +6,8 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+
+import { MatGridList } from '@angular/material/grid-list';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
@@ -21,7 +23,7 @@ export interface Client {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'gotcha-frontend';
   panelOpenState = false;
@@ -29,6 +31,16 @@ export class AppComponent {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  breakpoint: number = 0;
+
+  ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 3;
+  }
+
+  onResize(event: any) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
+  }
 
   constructor(
     private _snackBar: MatSnackBar,
