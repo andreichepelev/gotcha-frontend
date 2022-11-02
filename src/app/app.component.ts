@@ -26,7 +26,6 @@ export class AppComponent {
   title = 'gotcha-frontend';
   panelOpenState = false;
   clientEndpointUrl = "https://gotcha-backend.herokuapp.com/api/add";
-  // private corsHeaders: HttpHeaders;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -34,11 +33,7 @@ export class AppComponent {
   constructor(
     private _snackBar: MatSnackBar,
     private http: HttpClient
-  ) {
-    // this.corsHeaders = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    // });
-  }
+  ) {}
 
   headerDict = {
     'Content-Type': 'application/json',

@@ -7,9 +7,9 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  img {
-    border-radius: 10%;
-  }
+  // img {
+  //   border-radius: 10%;
+  // }
 
   h1,
   h2,
@@ -18,10 +18,15 @@
   h5,
   h6 {
     margin: 8px 0;
+    text-align: center;
   }
 
   p {
+    font-size: medium;
+    text-align: center;
     margin: 0;
+    width: 640px;
+    max-width: 100%;
   }
 
   .spacer {
@@ -141,13 +146,12 @@
     width: 320px;
   }
 
-  button {
-      width: 320px;
-      // height: 32px;
-      // cursor: pointer;
+  .diagram {
+    max-width: 100%;
+    width: 600px;
   }
 
-  /* .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  } */
+  button {
+      width: 320px;
+  }
 
