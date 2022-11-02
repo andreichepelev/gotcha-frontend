@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -16,13 +22,17 @@ export interface Client {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'gotcha-frontend';
   panelOpenState = false;
   clientEndpointUrl = "https://gotcha-backend.herokuapp.com/api/add";
   // private corsHeaders: HttpHeaders;
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
+    private _snackBar: MatSnackBar,
     private http: HttpClient
   ) {
     // this.corsHeaders = new HttpHeaders({
@@ -51,10 +61,17 @@ export class AppComponent {
     Validators.required,
   ]);
 
+  openSnackBar() {
+    this._snackBar.open('Your email and address are added to the database, you can test Gotcha on Goerli', 'Got it', {
+      duration: 10000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
 
   newClient(_email: string, _address: string) {
 
-    const newClientObj: Client = {
+    const newClientObj: Client = { 
       email: _email,
       address: _address
     };
@@ -68,6 +85,8 @@ export class AppComponent {
           return throwError(() => new Error('error occured'))
         })
       ).subscribe(newClientObj => console.log("new client added: ", newClientObj))
+
+      this.openSnackBar()
   }
 
 }
