@@ -63,7 +63,7 @@ export class AppComponent {
 
   openSnackBar() {
     this._snackBar.open('Your email and address are added to the database, you can test Gotcha on Goerli', 'Got it', {
-      duration: 10000,
+      duration: 7000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
@@ -87,6 +87,8 @@ export class AppComponent {
       ).subscribe(newClientObj => console.log("new client added: ", newClientObj))
 
       this.openSnackBar()
+      this.emailFormControl.reset()
+      this.addressFormControl.reset()
   }
 
 }

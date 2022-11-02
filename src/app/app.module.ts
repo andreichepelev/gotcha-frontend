@@ -9,17 +9,20 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatExpansionModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
